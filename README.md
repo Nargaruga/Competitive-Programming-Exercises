@@ -1,0 +1,1 @@
+A collection of exercises for the "Competitive Programming and Contests" course at University of Pisa.
