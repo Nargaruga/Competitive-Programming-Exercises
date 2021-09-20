@@ -17,7 +17,6 @@ int main()
 
     int elevationMap[n];
     cout << "Please input " << n << " element(s) one at a time." << endl;
-    //Initialize the elevation map
     for(int i = 0; i < n; i++)
     {
         cin >> elevationMap[i];

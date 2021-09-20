@@ -17,7 +17,6 @@ int main()
     int input[n];
 
     cout << "Please input " << n << " element(s) one at a time." << endl;
-    //Initialize the array and max
     for(int i = 0; i < n; i++)
     {
         cin >> input[i];

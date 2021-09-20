@@ -18,7 +18,6 @@ int main()
     int input[n];
 
     cout << "Please input " << n - 1 << " element(s) one at a time." << endl;
-    //Initialize the array
     for (int i = 0; i < n - 1; i++)
     {
         cin >> input[i];

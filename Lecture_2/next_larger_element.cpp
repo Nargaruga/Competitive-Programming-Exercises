@@ -20,7 +20,6 @@ int main()
     }
 
     cout << "Please input " << n << " element(s) one at a time." << endl;
-    //Initialize array
     for(int i = 0; i < n; i++)
     {
         int el;
