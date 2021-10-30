@@ -1,10 +1,11 @@
 #include <iostream>
-#include<vector>
+#include <vector>
 #include <utility>
 
 using namespace std;
 
-int main() {
+int main()
+{
     string input;
     int k = -1, n;
     vector<pair<int, int>> queries;
@@ -14,7 +15,7 @@ int main() {
     cin >> input;
     n = input.length();
 
-    while(k < 0) 
+    while (k < 0)
     {
         cout << "Please input the number of queries. The number must be greater than 0." << endl;
         cin >> k;
@@ -22,35 +23,41 @@ int main() {
 
     int l, r;
     cout << "Please input your queries in the form l r with 1 <= l < r <= n." << endl;
-    for(int i = 0; i < k; i++) 
+    for (int i = 0; i < k; i++)
     {
-        cin >> l >> r;;
+        cin >> l >> r;
 
-        if(l < 1 || l > r || r > n)
+        if (l < 1 || l > r || r > n)
         {
             cout << "Please follow the constraints." << endl;
             i--;
-        } else {
-             queries.push_back(make_pair(l, r));
         }
+        else
+        {
+            queries.push_back(make_pair(l, r));
+        }
+    }
+
+    int sum = 0;
+    int prefixSums[n] = {0};
+    for (int i = 1; i < n; i++)
+    {
+        if (input[i] == input[i-1])
+            sum++;
+
+        prefixSums[i] = sum;
     }
 
     int count;
     cout << "Here is the answer to your queries." << endl;
-    for(pair<int, int> query : queries)
+    for (pair<int, int> query : queries)
     {
         l = query.first;
         r = query.second;
-        count = 0;
 
-        //Iterate backwards over the subarray [l, r) and, for each element, check
-        // if it's equal to the one to its right.
-        for(int i = r-1; i > l-1; i--) 
-        {
-            if(input[i] == input[i-1])
-                count++;
-        }
+        //Get the number of elements indexed in range [l, r) which satisfy the condition 
+        count = prefixSums[r-1] - prefixSums[l-1];
 
-        cout << "l: " << l << ", r: " << r << ", Count: " << count << endl; 
+        cout << "l: " << l << ", r: " << r << ", Count: " << count << endl;
     }
 }
