@@ -109,7 +109,7 @@ int buildTree(int tree[], int input[], int l, int r, int i)
 //Increment the values in range [`sl`, `sr`] of the tree by `v`.
 //  `nl` and `nr` are the bounds of the segment defined by the
 //  current node, which has index `i`.
-//  These last parameters are needed for recursion.
+//  These last three parameters are needed for recursion.
 void inc(int tree[], int nl, int nr, int sl, int sr, int v, int i)
 {
     if(nl >= sl && nr <= sr)
@@ -130,10 +130,9 @@ void inc(int tree[], int nl, int nr, int sl, int sr, int v, int i)
 
 //Returns the minimum value in range [`sl`, `sr`] of `tree`.
 //  `nl`, `nr` are the left and right boundaries of the node indexed `i`.
-//  These last parameters are needed for recursion.
+//  These last three parameters are needed for recursion.
 int rmq(int tree[], int nl, int nr, int sl, int sr, int i)
 {
-    fprintf(stdout, "nl: %d, nr: %d, sl: %d, sr: %d tree[i]: %d\n", nl, nr, sl, sr, tree[i]);
     //No overlap
     if(sr < nl || sl > nr) return INT32_MAX;
 
