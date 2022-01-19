@@ -56,15 +56,15 @@ int main()
     //Sort queries by increasing order of l
     sort(queries.begin(), queries.end(), compStart);
 
-    //Sort each subsection of size at most intSqrt
+    //Sort each subsection of size at most groupSize
     //  by increasing order of r
-    int intSqrt = ceil(sqrt(t));
-    for(int i = 0; i < intSqrt; i++)
+    int groupSize = ceil(sqrt(n));
+    for(int i = 0; i < groupSize; i++)
     {
-        int curGroupStart = i * intSqrt;
-        int curGroupEnd = (i < intSqrt - 1)
-            ? curGroupStart + intSqrt
-            : intSqrt;
+        int curGroupStart = i * groupSize + 1;
+        int curGroupEnd = (i < groupSize - 1)
+            ? curGroupStart + groupSize - 1
+            : n - 1;
 
         sort(queries.begin() + curGroupStart,
             queries.begin() + curGroupEnd,
